@@ -1,0 +1,57 @@
+<template name="edit_table">	
+	<div class="container">
+
+		<!-- <div class="alert alert-info alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>This warning with instructions is for revision purpose only</strong><br><br>
+		  Here you can see the state of the table and players in the table.<br><br>
+		  - CREATED: you can add or remove players and then you can start playing<br>
+		  - RUNNING: you can't add or remove player, you can only click play and go in "current table" view, where you can insert point or close the table.<br>
+		  - CLOSED: you can re-start the table or remove it from the list		  
+		</div> -->
+
+		<!-- <div class="jumbotron table_{{table.state}}">
+		    <h3>TABLE {{tableId}}</h3>
+		    <h3>TABLE ({{table.state}}) created on {{getDate table.date}}</h3>		    
+		</div> -->
+
+	 	
+		<h2>Tavolo ({{table.state}}), il {{getDate table.date}}</h2> 	
+
+	  	{{#if isRunning}}
+	        <a href="/active_tables/{{getYear}}" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;tavoli attivi</a>
+			<a href="/current_table" type="button" class="btn btn-primary">gioca&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
+			<br>
+			<div class="row table-participant-div">
+			  	
+			  	{{#each users}}
+				  	<div class="col-xs-6 {{getClass _id}}">						
+						<div class="user_avatar">
+							<img src="/avatar/{{profile.avatar}}" class="avatar_img">	
+							<div class="user-name">{{profile.username}}</div>		
+							<div class="user-points">{{points}}</div>							
+						</div>
+				  	</div>
+			  	{{/each}}
+			</div>		  
+	    {{else}}			 			        
+	        <a href="/active_tables/{{getYear}}" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;tavoli attivi</a>
+			<a href="" type="button" class="btn btn-primary js-remove-table"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;rimuovi tavolo</a>
+			<a href="" type="button" class="btn btn-primary js-start-table">gioca&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
+			<br>
+			<div class="row table-participant-div">
+			  	
+			  	{{#each users}}
+				  	<div class="col-xs-6  js-toggle-select-user {{getClass _id}}">						
+						<div class="user_avatar">
+							<img src="/avatar/{{profile.avatar}}" class="avatar_img">	
+							<div class="user-name">{{profile.username}}</div>		
+							<div class="user-points">{{points}}</div>							
+						</div>
+				  	</div>
+			  	{{/each}}
+			</div>		  
+	    {{/if}}		
+	    <div class="chiusura-pagina"></div>		
+	</div>	
+</template>

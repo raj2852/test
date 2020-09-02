@@ -1,0 +1,81 @@
+<template name="hands_list">	
+ <!-- <script>
+    function PlaySound2() {
+          var sound = document.getElementById("audio2");
+          alert(sound.src);
+          sound.play()
+      }
+    </script> -->
+<div class="container">	 	
+	<!-- <div class="alert alert-info alert-dismissible" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>This warning with instructions is for revision purpose only</strong><br><br>
+	  The winner that you are recording is: {{userWinner.profile.username}}. Please, choose the hand's type among those available.<br><br>
+	  If you choose, for example, a straight, then you will be asked to choose the height of the point. Instead, if you choose flush, you will be asked to choose the suit of the point.
+	  Finally, if you choose a straight flush, you will be asked to choose the suit and the height of the point.
+	</div> -->
+	<audio id="audio2" src="/music/{{userWinner.profile.username}}.wav" autostart="false" ></audio>
+	<!-- <script>
+        var sound = document.getElementById("audio");
+        sound.play();
+    </script> -->
+	<a href="/current_table" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;tavolo corrente</a>
+	<h1>Vincitore: {{userWinner.profile.username}}</h1>
+	 <!-- <a onclick="PlaySound2()"> Play</a> -->
+	{{#each hands}}
+	  	<div class="col-xs-6">
+	  		<!-- {{#if isPointHi id}}
+		        <a href="/point_height/{{id}}">
+			        <div class="user_avatar">			
+						<div class="">
+							<img src="/img/{{img}}" class="avatar_img">
+							<div>{{name}}</div>			
+						</div>					
+					</div>
+				</a>
+		    {{else}}			 			        
+		         <a href="/suits_list/{{id}}">
+			        <div class="user_avatar">			
+						<div class="">
+							<img src="/img/{{img}}" class="avatar_img">
+							<div>{{name}}</div>			
+						</div>					
+					</div>
+				</a>
+		    {{/if}}		 -->  		
+
+		    {{#if isPointHi id}}
+		        <a href="/point_height/{{id}}">
+			        <div class="hand_button">			
+						<div class="">
+							<img src="/img/{{img}}" class="hand_img">
+							<div>{{name}}</div>			
+						</div>					
+					</div>
+				</a>
+		    {{else}}			 			        
+		        {{#if isPointNv id}}
+			        <a href="" class="js-set-point" data-id="{{id}}">
+				        <div class="hand_button">			
+							<div class="">
+								<img src="/img/{{img}}" class="hand_img">
+								<div>{{name}}</div>			
+							</div>					
+						</div>
+					</a>
+			    {{else}}			 			        
+			         <a href="/suits_list/{{id}}">
+				        <div class="hand_button">			
+							<div class="">
+								<img src="/img/{{img}}" class="hand_img">
+								<div>{{name}}</div>			
+							</div>					
+						</div>
+					</a>
+			    {{/if}}		
+		    {{/if}}		
+
+	  	</div>
+	{{/each}}
+	</div>
+</template>

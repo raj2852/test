@@ -1,0 +1,41 @@
+<template name="rankings">
+	<div class="container">
+				
+		    <h3>Classifiche</h3>   
+		    <!-- <div>Numero giocatori:{{rankings.n_players}}</div> -->
+		    
+	    	<svg class="canvas"></svg>
+
+		   <!--  <div>Numero giocatori:{{rankings.n_players}}</div>
+			<div>Numero mani:{{rankings.n_hands}}</div> -->
+
+			<!-- <div class="row">
+				<div class="col-sx-12">
+					{{> reactiveTable class="table table-bordered table-hover" rowsPerPage=12 collection=rankings.tablePlayers}}
+				</div>
+			</div>
+			 -->
+
+			<!-- {{#each rankings.players}}
+				<div class="row">
+					<div class="col-xs-7">{{profile.username}}</div>
+					<div class="col-xs-1">{{userHands}}</div>
+					<div class="col-xs-1">{{userPoints}}</div>
+					<div class="col-xs-1">{{userMean}}</div>
+					<div class="col-xs-1"> {{userTelesinaMean}}</div>
+					<div class="col-xs-1"> {{userPokerMean}}</div>
+				</div>
+			  	
+		  	{{/each}} -->
+		  	<!-- <div>Numero giocatori:{{rankings.n_players}}</div> -->
+
+		  	{{#each royal_hands2}}
+				<div class="row">
+					
+					<div class="col-xs-12">{{username}} ({{hand}} {{point_height}}) {{getDate date}}</div>
+					
+				</div>
+		  	{{/each}}
+	</div>
+	
+</template>

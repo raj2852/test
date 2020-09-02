@@ -1,0 +1,37 @@
+<template name="suits_list">
+	<div class="container"> 
+
+		<!-- <div class="alert alert-info alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>This warning with instructions is for revision purpose only</strong><br>
+		  Please, choose the point's suit among those available.
+		</div> -->
+		<a href="/current_table" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;current table</a>
+		<h1>Colori</h1>
+		{{#each suits}}
+		  	<div class="col-xs-6">		  		
+
+				{{#if isPointCo}}
+			       	<a href="" class="js-set-point" data-id="{{id}}">
+						<div class="hand_button">			
+							<div class="">
+								<img src="/img/{{img}}" class="hand_img">	
+								<div>{{name}}</div>					
+							</div>					
+						</div>
+						</a>
+			    {{else}}			 			        
+			          <a href="/point_color_height/{{id}}">
+				        <div class="hand_button">			
+							<div class="">
+								<img src="/img/{{img}}" class="hand_img">
+								<div>{{name}}</div>			
+							</div>					
+						</div>
+					</a>
+			    {{/if}}
+
+		  	</div>
+		{{/each}}
+	</div>
+</template>

@@ -1,0 +1,30 @@
+<template name="add_inc">
+	<div class="container">
+		   
+
+		<a href="/table_hands" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;mani giocate</a>
+		<div class="row table-participant-div">
+			  	
+			  	{{#each users}}
+			  		{{#let userId=_id}}
+			  		{{#if isUserInTable _id}}
+				  	<div class="col-xs-12 {{getClass _id}}">						
+						<div class="user_avatar" style="padding-bottom: 5px;">
+							<img src="/avatar/{{profile.avatar}}" class="avatar_img">	
+							<div class="user-name">{{profile.username}}</div>		
+							<div class="user-points"  style="font-size: 3em;">{{getIncValue userId}}</div>	
+							
+							  
+							  	{{#each inc_points userId}}
+							  	<button type="button" class="btn btn-secondary js-inc-point" style="width: 13%;">{{value}}</button>
+							  	{{/each}}		
+						</div>
+				  	</div>
+				  	{{/if}}
+				  	{{/let}}
+			  	{{/each}}
+			</div>
+			<a href="" class="btn btn-primary js-confirm-inc" style="margin-top: 20px; margin-bottom: 100px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;conferma</a>		  
+	</div>
+	
+</template>

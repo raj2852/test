@@ -1,0 +1,53 @@
+<template name="current_table">	
+	<div class="container">	 	
+		
+		<!-- <div class="alert alert-info alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>This warning with instructions is for revision purpose only</strong><br>
+		  Imagine that you are playing a hand of poker. A player wins the hand and you have to insert all the information about winning point. First of all you have to choose the winning player.
+		  Please choose a player among those available.
+		</div> -->
+		<!-- <h1>TABLE {{activeTable}}</h1> 	 -->
+		<h1>Tavolo corrente: {{activeTable}}</h1> 	
+		<a href="/table_hands" class="btn btn-primary">mani giocate&nbsp;<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+		{{#if isRunning}}
+		<button type="button" class="btn btn-primary js-close-table"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;chiudi tavolo</button>	 
+		{{else}}	
+		<a href="" type="button" class="btn btn-primary js-remove-table"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;rimuovi tavolo</a>
+		{{/if}}		
+		<div class="row table-participant-div">
+		  	<!-- {{#each user}}
+			  	<div class="col-xs-6">		  		
+					{{> available_user}}			
+			  	</div>
+		  	{{/each}} -->
+		  	{{#each players}}
+			  	<div class="col-xs-6">		  		
+					<a href="/hands_list/{{_id}}">
+						<div class="user_avatar">			
+							<div>
+								<img src="/avatar/{{profile.avatar}}" class="avatar_img">	
+								<div class="user-name">{{profile.username}}</div>		
+								<div class="user-points">
+									<div>{{points}}</div>
+									<div style="font-size: 0.4em; font-weight: lighter;">punti</div>
+								</div>
+							</div>			
+						</div>
+					</a>		
+			  	</div>
+		  	{{/each}}
+
+		</div>
+		<a href="/telesina_list" class="btn btn-warning buttonparol" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Telesina</a>
+		<button type="button" class="btn btn-warning js-add-piattoparol buttonparol"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Piatto Parol</button>
+		<button type="button" class="btn btn-warning js-add-piattononaperto buttonparol"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Non aperto</button>	
+		<br>
+		
+		<!-- <a href="/telesina_list" type="button" class="btn btn-warning" style="position:fixed; bottom: 30px; right: 20px; width: 50px; height: 50px; border-radius: 50px;">
+			<div style="font-size: 2em; color: white; font-weight: bold;">+</div>
+		</a>  -->
+		<div class="chiusura-pagina"></div>
+	</div>	
+
+</template>

@@ -1,0 +1,25 @@
+<template name="point_heights">	
+	<div class="container"> 
+
+		<!-- <div class="alert alert-info alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>This warning with instructions is for revision purpose only</strong><br>
+		  Please, choose the point's height among those available.
+		</div> -->
+		<a href="/current_table" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;current table</a>
+		<h1>Point height</h1>
+		{{#each point_heights}}
+	  	<div class="col-xs-6">
+	  		<a href="" class="js-set-point" data-id="{{id}}">
+			<div class="point_height_button">			
+				<div class="">
+					<img src="/img/{{img}}" class="point_height_image">	
+					<div>{{name}}</div>					
+				</div>					
+			</div>
+			</a>
+	  	</div>
+	{{/each}}
+	</div>
+	
+</template>

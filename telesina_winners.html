@@ -1,0 +1,58 @@
+<template name="telesina_winners">	
+	<div class="container">
+		<!-- <div class="alert alert-info alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>This warning with instructions is for revision purpose only</strong><br>
+		  Here you have to choose players who have won the hand. In brackets you can see the number of winners required by the type of stud poker chosen.
+		  If all the dishes of the hand were won by the same player, you can insert the player many times.<br>
+		  If all the dishes of the hand were won by the same player, you can insert the player many times. Once you have chosen the right number of winners, you have to confirm the choice.<br><br>
+		  The points awarded to each player in the hand depend on how many plates are provided by the type of stud poker chosen and on how many plates each player wins. For example if you choose XYZ (3) and user1 wins 2 plates and user2 wins 1 plate, user1 gets 1 point and user2 gets 0.5 points. If user1 wins all 3 plates, he gets 2 points. Finally if there are 3 distinct winners, each player gets 0.5 points. 
+		</div> -->
+	 	
+	    <h1>"{{telesina.name}}"</h1>  
+	    <!-- <h3  style="margin-bottom: 30px;">(You have to choose {{telesina.plates}} winners)</h3>  -->
+		<a href="/current_table" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;tavolo corrente</a>
+		<div class="row table-participant-div">
+		  	<!-- {{#each user}}
+			  	<div class="col-xs-6">		  		
+					{{> available_user}}			
+			  	</div>
+		  	{{/each}} -->
+		  	{{#each players}}
+			  	<div class="col-xs-6 js-toggle-add-winner {{getClass _id}}"  data-id="{{_id}}">						
+						<div class="user_avatar">
+							<img src="/avatar/{{profile.avatar}}" class="avatar_img">	
+							<div class="user-name">{{profile.username}}</div>		
+							<!-- <div class="user-points">{{points}}</div> -->							
+						</div>
+				  	</div>
+		  	{{/each}}
+
+		</div>	
+
+
+		<h3>Elenco vincitori:</h3> 
+
+		{{#each winners}}
+
+	  	<div class="row table-hands">
+	  		<div class="col-xs-2">
+	  			<div type="button" class="btn btn-danger js-remove-winner" data-id="{{user._id}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;rimuovi</div>
+	  		</div>
+	  		<div class="col-xs-1">{{rowIndex}}</div>
+	  		<div class="col-xs-2"><img src="/avatar/{{user.profile.avatar}}" class="hands_avatar_img" title="{{user.profile.username}}"></div>		
+	  		<div class="col-xs-2">{{user.profile.username}}</div>	
+	  		<!-- <div class="col-xs-6">{{hand.name}} </div>	 -->
+	  			  		
+	  	</div>
+	  	{{/each}}
+
+	  	<a href="" class="btn btn-primary js-confirm-plate" style="margin-top: 20px; margin-bottom: 100px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;conferma</a>
+		<!-- <a href="" type="button" class="btn btn-warning js-confirm-plate" style="position:fixed; bottom: 30px; right: 20px; width: 50px; height: 50px; border-radius: 50px;">
+			<div style="font-size: 2em; color: white; font-weight: bold;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+		</a>  -->
+	  	
+		
+
+	</div>	
+</template>

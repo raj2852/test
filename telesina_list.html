@@ -1,0 +1,30 @@
+<template name="telesina_list">
+	<div class="container">
+		<!-- <div class="alert alert-info alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>This warning with instructions is for revision purpose only</strong><br>
+		  Here you have to choose which type of stud poker has been played.
+		</div> -->
+		<h1>Elenco telesine</h1>
+
+		{{#each telesine}}
+		  	<div class="col-xs-6">
+		  		<a href="/telesina_winners/{{id}}">
+		  		<div class="hand_button">			
+					<div class="">
+						<img src="/telesine/{{img}}" class="hand_img">	
+						<div>{{name}} {{code}}  {{plates}}</div>					
+					</div>					
+				</div>
+			  		<!-- <div>			
+						<div class="">
+							<div>{{code}}</div>		
+							<div>{{name}}</div>		
+							<div>{{plates}}</div>			
+						</div>					
+					</div> -->
+				</a>
+		  	</div>
+		  	{{/each}}
+	</div>
+</template>
